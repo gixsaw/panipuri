@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KEERTHANA | Half-Human, Half-Chaos</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#7f0df2",
+            "background-light": "#f7f5f8",
+            "background-dark": "#191022",
+          },
+          fontFamily: {
+            "display": ["Space Grotesk", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .text-outline {
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+      color: transparent;
+    }
+    .glass-card {
+      background: rgba(127, 13, 242, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(127, 13, 242, 0.1);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white selection:bg-primary selection:text-white">
+<!-- Main Layout Container -->
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<nav class="sticky top-0 z-50 flex items-center justify-between bg-background-light/80 dark:bg-background-dark/80 px-6 py-4 backdrop-blur-md">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
+<span class="material-symbols-outlined">colors_spark</span>
+</div>
+<div class="hidden md:flex gap-8 text-sm font-bold tracking-widest uppercase">
+<a class="text-primary" href="#">Home</a>
+<a class="hover:text-primary transition-colors" href="#">Vibe</a>
+<a class="hover:text-primary transition-colors" href="#">Chaos</a>
+</div>
+<button class="flex h-10 w-10 items-center justify-center rounded-full border border-primary/20 bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+</nav>
+<!-- Hero Section -->
+<header class="relative flex min-h-[90vh] flex-col items-center justify-center px-4 pt-12 text-center">
+<!-- Decorative Background Elements -->
+<div class="absolute top-1/4 left-10 size-32 rounded-full bg-primary/20 blur-3xl"></div>
+<div class="absolute bottom-1/4 right-10 size-48 rounded-full bg-primary/10 blur-3xl"></div>
+<div class="relative z-10 flex flex-col gap-6">
+<h1 class="text-7xl font-black leading-none tracking-tighter md:text-9xl lg:text-[12rem]">
+<span class="block text-primary">KEER</span>
+<span class="block text-outline dark:text-outline">THANA</span>
+</h1>
+<div class="mx-auto max-w-md">
+<h2 class="text-xl font-medium leading-relaxed md:text-2xl">
+            Half-human, half-chaos, <span class="bg-primary/20 px-2 py-1 text-primary rounded">full-time Keerthana.</span>
+</h2>
+</div>
+<div class="mt-8 flex flex-col items-center gap-4">
+<button class="group relative flex h-14 items-center justify-center gap-2 overflow-hidden rounded-full bg-primary px-8 text-lg font-bold text-white transition-all hover:scale-105 active:scale-95">
+<span>Get to know me</span>
+<span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_downward</span>
+</button>
+<p class="text-sm font-medium uppercase tracking-[0.2em] opacity-50">Scroll for the breakdown</p>
+</div>
+</div>
+</header>
+<!-- The Identity Breakdown (Acrostic Section) -->
+<main class="container mx-auto max-w-4xl px-4 py-24">
+<div class="mb-20 text-center">
+<h3 class="text-xs font-black uppercase tracking-[0.5em] text-primary">The Identity Breakdown</h3>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Letter K -->
+<div class="group flex items-center gap-6 rounded-xl bg-white/5 p-6 transition-all hover:bg-primary/10">
+<div class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-primary text-4xl font-black text-white shadow-lg shadow-primary/30 group-hover:rotate-12 transition-transform">K</div>
+<div class="flex flex-col">
+<span class="text-3xl font-bold tracking-tight text-primary">Kind-of-crazy</span>
+<span class="text-slate-500 dark:text-slate-400">Embracing the beautiful mess.</span>
+</div>
+<div class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary text-4xl">bolt</span>
+</div>
+</div>
+<!-- Letter E -->
+<div class="group flex items-center gap-6 rounded-xl bg-white/5 p-6 transition-all hover:bg-primary/10">
+<div class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-primary text-4xl font-black text-white shadow-lg shadow-primary/30 group-hover:-rotate-12 transition-transform">E</div>
+<div class="flex flex-col">
+<span class="text-3xl font-bold tracking-tight text-primary">Enthusiastic-snacker</span>
+<span class="text-slate-500 dark:text-slate-400">Professional cookie quality controller.</span>
+</div>
+<div class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary text-4xl">cookie</span>
+</div>
+</div>
+<!-- Letter E -->
+<div class="group flex items-center gap-6 rounded-xl bg-white/5 p-6 transition-all hover:bg-primary/10">
+<div class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-primary text-4xl font-black text-white shadow-lg shadow-primary/30 group-hover:scale-110 transition-transform">E</div>
+<div class="flex flex-col">
+<span class="text-3xl font-bold tracking-tight text-primary">Emotionally-stable-ish</span>
+<span class="text-slate-500 dark:text-slate-400">Mostly keeping it together, mostly.</span>
+</div>
+<div class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary text-4xl">favorite</span>
+</div>
+</div>
+<!-- Letter R -->
+<div class="group flex items-center gap-6 rounded-xl bg-white/5 p-6 transition-all hover:bg-primary/10">
+<div class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-primary text-4xl font-black text-white shadow-lg shadow-primary/30 group-hover:rotate-180 transition-transform">R</div>
+<div class="flex flex-col">
+<span class="text-3xl font-bold tracking-tight text-primary">Radical-procrastinator</span>
+<span class="text-slate-500 dark:text-slate-400">Doing it tomorrow since 1998.</span>
+</div>
+<div class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary text-4xl">schedule</span>
+</div>
+</div>
+<!-- Letter T -->
+<div class="group flex items-center gap-6 rounded-xl bg-white/5 p-6 transition-all hover:bg-primary/10">
+<div class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-primary text-4xl font-black text-white shadow-lg shadow-primary/30 group-hover:-translate-y-2 transition-transform">T</div>
+<div class="flex flex-col">
+<span class="text-3xl font-bold tracking-tight text-primary">Taco-enthusiast</span>
+<span class="text-slate-500 dark:text-slate-400">Tuesdays are for lovers. Taco lovers.</span>
+</div>
+<div class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary text-4xl">lunch_dining</span>
+</div>
+</div>
+<!-- Letter H -->
+<div class="group flex items-center gap-6 rounded-xl bg-white/5 p-6 transition-all hover:bg-primary/10">
+<div class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-primary text-4xl font-black text-white shadow-lg shadow-primary/30 group-hover:skew-x-12 transition-transform">H</div>
+<div class="flex flex-col">
+<span class="text-3xl font-bold tracking-tight text-primary">High-key-funny</span>
+<span class="text-slate-500 dark:text-slate-400">Wife, daughter, stand-up comedian (unpaid).</span>
+</div>
+<div class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary text-4xl">sentiment_very_satisfied</span>
+</div>
+</div>
+<!-- Letter A -->
+<div class="group flex items-center gap-6 rounded-xl bg-white/5 p-6 transition-all hover:bg-primary/10">
+<div class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-primary text-4xl font-black text-white shadow-lg shadow-primary/30 group-hover:opacity-50 transition-all">A</div>
+<div class="flex flex-col">
+<span class="text-3xl font-bold tracking-tight text-primary">Awesome-at-naps</span>
+<span class="text-slate-500 dark:text-slate-400">Could sleep through a volcanic eruption.</span>
+</div>
+<div class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary text-4xl">bedtime</span>
+</div>
+</div>
+<!-- Letter N -->
+<div class="group flex items-center gap-6 rounded-xl bg-white/5 p-6 transition-all hover:bg-primary/10">
+<div class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-primary text-4xl font-black text-white shadow-lg shadow-primary/30 group-hover:translate-x-4 transition-transform">N</div>
+<div class="flex flex-col">
+<span class="text-3xl font-bold tracking-tight text-primary">Never-on-time</span>
+<span class="text-slate-500 dark:text-slate-400">Arriving fashionably late since birth.</span>
+</div>
+<div class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary text-4xl">history</span>
+</div>
+</div>
+<!-- Letter A -->
+<div class="group flex items-center gap-6 rounded-xl bg-white/5 p-6 transition-all hover:bg-primary/10">
+<div class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-primary text-4xl font-black text-white shadow-lg shadow-primary/30 group-hover:ring-4 group-hover:ring-primary/40 transition-all">A</div>
+<div class="flex flex-col">
+<span class="text-3xl font-bold tracking-tight text-primary">Absolute-legend</span>
+<span class="text-slate-500 dark:text-slate-400">You read the whole name. You're a fan.</span>
+</div>
+<div class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary text-4xl">workspace_premium</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Visual Divider Section -->
+<section class="relative h-64 w-full overflow-hidden bg-primary/10">
+<div class="flex h-full items-center justify-center">
+<div class="flex animate-pulse gap-8 whitespace-nowrap text-6xl font-black opacity-10">
+<span>CHAOS</span><span>CHAOS</span><span>CHAOS</span><span>CHAOS</span><span>CHAOS</span><span>CHAOS</span>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<!-- Life Stats Section -->
+<section class="container mx-auto max-w-4xl px-4 py-24">
+<div class="mb-16 text-center">
+<h3 class="text-xs font-black uppercase tracking-[0.5em] text-primary mb-4">The Metrics</h3>
+<h2 class="text-4xl font-black md:text-5xl">Keerthana's Life Stats</h2>
+</div>
+<div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+<div class="glass-card flex flex-col items-center justify-center p-8 rounded-2xl text-center">
+<span class="material-symbols-outlined text-primary mb-4 text-4xl">coffee</span>
+<span class="text-3xl font-black">∞</span>
+<span class="text-xs uppercase tracking-widest opacity-60 mt-2">Cups of coffee</span>
+</div>
+<div class="glass-card flex flex-col items-center justify-center p-8 rounded-2xl text-center">
+<span class="material-symbols-outlined text-primary mb-4 text-4xl">auto_stories</span>
+<span class="text-3xl font-black">12</span>
+<span class="text-xs uppercase tracking-widest opacity-60 mt-2">Unfinished books</span>
+</div>
+<div class="glass-card flex flex-col items-center justify-center p-8 rounded-2xl text-center">
+<span class="material-symbols-outlined text-primary mb-4 text-4xl">potted_plant</span>
+<span class="text-3xl font-black">4</span>
+<span class="text-xs uppercase tracking-widest opacity-60 mt-2">Plants killed</span>
+</div>
+<div class="glass-card flex flex-col items-center justify-center p-8 rounded-2xl text-center">
+<span class="material-symbols-outlined text-primary mb-4 text-4xl">kitchen</span>
+<span class="text-3xl font-black">TOO MANY</span>
+<span class="text-[10px] leading-tight uppercase tracking-widest opacity-60 mt-2">Hours staring at fridge</span>
+</div>
+</div>
+</section>
+<!-- Current Obsessions Section -->
+<section class="pb-32">
+<div class="container mx-auto max-w-4xl px-4 mb-12">
+<h3 class="text-xs font-black uppercase tracking-[0.5em] text-primary mb-4">On Rotation</h3>
+<h2 class="text-4xl font-black md:text-5xl">Current Obsessions</h2>
+</div>
+<div class="flex gap-6 overflow-x-auto px-[10%] pb-8 no-scrollbar scroll-smooth">
+<div class="min-w-[280px] shrink-0 p-8 rounded-3xl bg-primary text-white shadow-xl flex flex-col justify-between h-48">
+<span class="material-symbols-outlined text-4xl opacity-50">tv</span>
+<span class="text-2xl font-bold">90s Sitcoms</span>
+</div>
+<div class="min-w-[280px] shrink-0 p-8 rounded-3xl border-2 border-primary/30 bg-primary/5 flex flex-col justify-between h-48">
+<span class="material-symbols-outlined text-4xl text-primary opacity-50">bakery_dining</span>
+<span class="text-2xl font-bold text-primary">Sourdough Baking <span class="text-sm block font-medium opacity-70">(it's a phase)</span></span>
+</div>
+<div class="min-w-[280px] shrink-0 p-8 rounded-3xl bg-white/5 border border-white/10 flex flex-col justify-between h-48">
+<span class="material-symbols-outlined text-4xl text-primary opacity-50">mic_external_on</span>
+<span class="text-2xl font-bold">True Crime Podcasts</span>
+</div>
+<div class="min-w-[280px] shrink-0 p-8 rounded-3xl border-2 border-primary/30 bg-primary/5 flex flex-col justify-between h-48">
+<span class="material-symbols-outlined text-4xl text-primary opacity-50">record_voice_over</span>
+<span class="text-2xl font-bold text-primary">Learning to whistle</span>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="border-t border-primary/10 bg-white/5 py-12 text-center">
+<p class="mb-6 text-sm font-medium uppercase tracking-[0.3em] opacity-40">Still here? Go take a nap.</p>
+<div class="flex justify-center gap-6">
+<a class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors hover:bg-primary hover:text-white" href="#">
+<span class="material-symbols-outlined">alternate_email</span>
+</a>
+<a class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors hover:bg-primary hover:text-white" href="#">
+<span class="material-symbols-outlined">photo_camera</span>
+</a>
+<a class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors hover:bg-primary hover:text-white" href="#">
+<span class="material-symbols-outlined">smart_display</span>
+</a>
+</div>
+<p class="mt-8 text-xs opacity-30">© 2024 Keerthana. All rights and wrongs reserved.</p>
+</footer>
+<!-- Bottom Mobile Nav -->
+<div class="fixed bottom-6 left-1/2 z-50 flex -translate-x-1/2 items-center gap-2 rounded-full bg-[#211b27] px-4 py-2 shadow-2xl ring-1 ring-white/10 md:hidden">
+<a class="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white" href="#">
+<span class="material-symbols-outlined">home</span>
+</a>
+<a class="flex h-10 w-10 items-center justify-center rounded-full text-slate-400" href="#">
+<span class="material-symbols-outlined">person</span>
+</a>
+<a class="flex h-10 w-10 items-center justify-center rounded-full text-slate-400" href="#">
+<span class="material-symbols-outlined">chat</span>
+</a>
+</div>
+</div>
+</body></html>
