@@ -103,6 +103,194 @@
     .animate-float {
       animation: float 6s ease-in-out infinite;
     }
+
+    /* Blob Animation */
+    @keyframes blob {
+      0% {
+        transform: translate(0px, 0px) scale(1);
+      }
+
+      33% {
+        transform: translate(30px, -50px) scale(1.1);
+      }
+
+      66% {
+        transform: translate(-20px, 20px) scale(0.9);
+      }
+
+      100% {
+        transform: translate(0px, 0px) scale(1);
+      }
+    }
+
+    .animate-blob {
+      animation: blob 7s infinite;
+    }
+
+    .animation-delay-2000 {
+      animation-delay: 2s;
+    }
+
+    .animation-delay-4000 {
+      animation-delay: 4s;
+    }
+
+    /* Timeline Styles */
+    .timeline-glow {
+      box-shadow: 0 0 15px rgba(127, 13, 242, 0.3);
+    }
+
+    @keyframes dot-pulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(127, 13, 242, 0.4);
+      }
+
+      50% {
+        box-shadow: 0 0 0 12px rgba(127, 13, 242, 0);
+      }
+    }
+
+    .timeline-dot {
+      animation: dot-pulse 2s infinite;
+    }
+
+    /* Timeline entries slide from sides */
+    .timeline-entry {
+      opacity: 0;
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .timeline-entry:nth-child(odd) {
+      transform: translateX(-60px);
+    }
+
+    .timeline-entry:nth-child(even) {
+      transform: translateX(60px);
+    }
+
+    .timeline-entry.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Flip Card Styles */
+    .flag-card {
+      perspective: 1000px;
+    }
+
+    .flag-card-inner {
+      transform-style: preserve-3d;
+      transition: transform 0.7s ease;
+    }
+
+    .flag-card:hover .flag-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flag-card-front,
+    .flag-card-back {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    .flag-card-back {
+      transform: rotateY(180deg);
+    }
+
+    /* Lava Lamp Effect */
+    @keyframes lava-1 {
+      0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+      }
+
+      25% {
+        transform: translate(80px, -100px) scale(1.15) rotate(90deg);
+      }
+
+      50% {
+        transform: translate(-40px, -180px) scale(0.9) rotate(180deg);
+      }
+
+      75% {
+        transform: translate(60px, -60px) scale(1.1) rotate(270deg);
+      }
+
+      100% {
+        transform: translate(0, 0) scale(1) rotate(360deg);
+      }
+    }
+
+    @keyframes lava-2 {
+      0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+      }
+
+      25% {
+        transform: translate(-100px, 60px) scale(1.2) rotate(-90deg);
+      }
+
+      50% {
+        transform: translate(70px, 120px) scale(0.85) rotate(-180deg);
+      }
+
+      75% {
+        transform: translate(-50px, -40px) scale(1.05) rotate(-270deg);
+      }
+
+      100% {
+        transform: translate(0, 0) scale(1) rotate(-360deg);
+      }
+    }
+
+    @keyframes lava-3 {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      33% {
+        transform: translate(120px, 80px) scale(1.25);
+      }
+
+      66% {
+        transform: translate(-80px, -60px) scale(0.8);
+      }
+
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+    }
+
+    @keyframes lava-4 {
+      0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+      }
+
+      50% {
+        transform: translate(-70px, 100px) scale(1.3) rotate(180deg);
+      }
+
+      100% {
+        transform: translate(0, 0) scale(1) rotate(360deg);
+      }
+    }
+
+    .lava-blob-1 {
+      animation: lava-1 12s ease-in-out infinite;
+    }
+
+    .lava-blob-2 {
+      animation: lava-2 15s ease-in-out infinite;
+    }
+
+    .lava-blob-3 {
+      animation: lava-3 10s ease-in-out infinite;
+    }
+
+    .lava-blob-4 {
+      animation: lava-4 18s ease-in-out infinite;
+    }
   </style>
   <style>
     body {
@@ -133,10 +321,18 @@
     </nav>
     <!-- Hero Section -->
     <header class="relative flex min-h-[90vh] flex-col items-center justify-center px-4 pt-12 text-center">
-      <!-- Decorative Background Elements -->
-      <div class="absolute top-1/4 left-10 size-32 rounded-full bg-primary/30 blur-3xl animate-pulse-slow"></div>
-      <div class="absolute bottom-1/4 right-10 size-48 rounded-full bg-primary/20 blur-3xl animate-pulse-slow"
-        style="animation-delay: 4s;"></div>
+      <!-- Lava Lamp Background -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-[10%] left-[15%] w-80 h-80 rounded-full bg-primary/40 blur-[80px] lava-blob-1"></div>
+        <div class="absolute top-[20%] right-[10%] w-96 h-96 rounded-full bg-violet-500/30 blur-[100px] lava-blob-2">
+        </div>
+        <div class="absolute bottom-[10%] left-[40%] w-72 h-72 rounded-full bg-fuchsia-500/35 blur-[70px] lava-blob-3">
+        </div>
+        <div class="absolute top-[50%] right-[30%] w-64 h-64 rounded-full bg-purple-400/25 blur-[90px] lava-blob-4">
+        </div>
+        <div class="absolute bottom-[30%] left-[5%] w-56 h-56 rounded-full bg-pink-500/30 blur-[80px] lava-blob-2"
+          style="animation-delay: -5s;"></div>
+      </div>
       <div class="relative z-10 flex flex-col gap-6">
         <h1 class="text-7xl font-black leading-none tracking-tighter md:text-9xl lg:text-[12rem]">
           <span class="block text-primary">KEER</span>
@@ -345,6 +541,142 @@
         </div>
       </div>
     </section>
+
+    <!-- A Day in the Life Section -->
+    <section class="container mx-auto max-w-4xl px-4 py-24 overflow-hidden">
+      <div class="mb-16 text-center">
+        <h3 class="text-xs font-black uppercase tracking-[0.5em] text-primary mb-4">The Routine (Loosely)</h3>
+        <h2 class="text-4xl font-black md:text-5xl">A Day in the Life</h2>
+      </div>
+      <div class="relative">
+        <!-- Glowing Timeline Line -->
+        <div
+          class="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-gradient-to-b from-primary/60 via-primary/30 to-transparent timeline-glow">
+        </div>
+
+        <!-- Timeline Entry 1 - Left -->
+        <div class="timeline-entry reveal-item flex items-center gap-8 mb-12 md:flex-row flex-col">
+          <div class="md:w-1/2 md:text-right md:pr-12 order-2 md:order-1">
+            <div
+              class="glass-card p-6 rounded-2xl group hover:bg-primary/10 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
+              <span class="text-xs font-black uppercase tracking-widest text-primary/60">7:00 AM</span>
+              <h4 class="text-xl font-bold mt-2">Alarm? What Alarm?</h4>
+              <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Snooze champion, 6th round. The alarm is merely
+                a suggestion.</p>
+              <span
+                class="material-symbols-outlined text-primary text-3xl mt-3 opacity-0 group-hover:opacity-100 transition-opacity">alarm_off</span>
+            </div>
+          </div>
+          <div
+            class="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/40 order-1 md:order-2 timeline-dot">
+            <span class="material-symbols-outlined">wb_sunny</span>
+          </div>
+          <div class="md:w-1/2 md:pl-12 order-3 hidden md:block"></div>
+        </div>
+
+        <!-- Timeline Entry 2 - Right -->
+        <div class="timeline-entry reveal-item flex items-center gap-8 mb-12 md:flex-row flex-col">
+          <div class="md:w-1/2 md:pr-12 order-2 hidden md:block"></div>
+          <div
+            class="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/40 order-1 timeline-dot">
+            <span class="material-symbols-outlined">coffee</span>
+          </div>
+          <div class="md:w-1/2 md:pl-12 order-3 md:order-3">
+            <div
+              class="glass-card p-6 rounded-2xl group hover:bg-primary/10 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
+              <span class="text-xs font-black uppercase tracking-widest text-primary/60">9:30 AM</span>
+              <h4 class="text-xl font-bold mt-2">Coffee Round One</h4>
+              <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Personality doesn't load without caffeine. This
+                is non-negotiable.</p>
+              <span
+                class="material-symbols-outlined text-primary text-3xl mt-3 opacity-0 group-hover:opacity-100 transition-opacity">local_cafe</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Entry 3 - Left -->
+        <div class="timeline-entry reveal-item flex items-center gap-8 mb-12 md:flex-row flex-col">
+          <div class="md:w-1/2 md:text-right md:pr-12 order-2 md:order-1">
+            <div
+              class="glass-card p-6 rounded-2xl group hover:bg-primary/10 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
+              <span class="text-xs font-black uppercase tracking-widest text-primary/60">12:00 PM</span>
+              <h4 class="text-xl font-bold mt-2">The Great Lunch Debate</h4>
+              <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">"What should I eat?" — the question that has no
+                answer, only suffering.</p>
+              <span
+                class="material-symbols-outlined text-primary text-3xl mt-3 opacity-0 group-hover:opacity-100 transition-opacity">restaurant</span>
+            </div>
+          </div>
+          <div
+            class="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/40 order-1 md:order-2 timeline-dot">
+            <span class="material-symbols-outlined">lunch_dining</span>
+          </div>
+          <div class="md:w-1/2 md:pl-12 order-3 hidden md:block"></div>
+        </div>
+
+        <!-- Timeline Entry 4 - Right -->
+        <div class="timeline-entry reveal-item flex items-center gap-8 mb-12 md:flex-row flex-col">
+          <div class="md:w-1/2 md:pr-12 order-2 hidden md:block"></div>
+          <div
+            class="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/40 order-1 timeline-dot">
+            <span class="material-symbols-outlined">self_improvement</span>
+          </div>
+          <div class="md:w-1/2 md:pl-12 order-3 md:order-3">
+            <div
+              class="glass-card p-6 rounded-2xl group hover:bg-primary/10 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
+              <span class="text-xs font-black uppercase tracking-widest text-primary/60">3:00 PM</span>
+              <h4 class="text-xl font-bold mt-2">Existential Snack Break</h4>
+              <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Staring into the fridge for meaning. Found
+                leftover pizza instead.</p>
+              <span
+                class="material-symbols-outlined text-primary text-3xl mt-3 opacity-0 group-hover:opacity-100 transition-opacity">kitchen</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Entry 5 - Left -->
+        <div class="timeline-entry reveal-item flex items-center gap-8 mb-12 md:flex-row flex-col">
+          <div class="md:w-1/2 md:text-right md:pr-12 order-2 md:order-1">
+            <div
+              class="glass-card p-6 rounded-2xl group hover:bg-primary/10 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
+              <span class="text-xs font-black uppercase tracking-widest text-primary/60">7:00 PM</span>
+              <h4 class="text-xl font-bold mt-2">Procrastination Prime Time</h4>
+              <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Plans to be productive. Opens Netflix. Tomorrow
+                is another day.</p>
+              <span
+                class="material-symbols-outlined text-primary text-3xl mt-3 opacity-0 group-hover:opacity-100 transition-opacity">tv</span>
+            </div>
+          </div>
+          <div
+            class="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/40 order-1 md:order-2 timeline-dot">
+            <span class="material-symbols-outlined">nightlife</span>
+          </div>
+          <div class="md:w-1/2 md:pl-12 order-3 hidden md:block"></div>
+        </div>
+
+        <!-- Timeline Entry 6 - Right -->
+        <div class="timeline-entry reveal-item flex items-center gap-8 md:flex-row flex-col">
+          <div class="md:w-1/2 md:pr-12 order-2 hidden md:block"></div>
+          <div
+            class="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/40 order-1 timeline-dot">
+            <span class="material-symbols-outlined">bedtime</span>
+          </div>
+          <div class="md:w-1/2 md:pl-12 order-3 md:order-3">
+            <div
+              class="glass-card p-6 rounded-2xl group hover:bg-primary/10 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
+              <span class="text-xs font-black uppercase tracking-widest text-primary/60">2:00 AM</span>
+              <h4 class="text-xl font-bold mt-2">Overthinking Olympics</h4>
+              <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Brain decides NOW is the time to replay every
+                conversation from 2014.</p>
+              <span
+                class="material-symbols-outlined text-primary text-3xl mt-3 opacity-0 group-hover:opacity-100 transition-opacity">psychology</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- Current Obsessions Section -->
     <section class="pb-32">
       <div class="container mx-auto max-w-4xl px-4 mb-12">
@@ -375,6 +707,122 @@
         </div>
       </div>
     </section>
+
+    <!-- Red Flags & Green Flags Section -->
+    <section class="container mx-auto max-w-5xl px-4 py-24">
+      <div class="mb-16 text-center">
+        <h3 class="text-xs font-black uppercase tracking-[0.5em] text-primary mb-4">The Honest Review</h3>
+        <h2 class="text-4xl font-black md:text-5xl">Red Flags & Green Flags</h2>
+        <p class="text-slate-500 dark:text-slate-400 mt-4 max-w-md mx-auto">Hover to flip. No refunds on personality.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Green Flag 1 -->
+        <div class="flag-card reveal-item h-56">
+          <div class="flag-card-inner relative w-full h-full">
+            <div
+              class="flag-card-front absolute inset-0 rounded-2xl bg-emerald-500/10 border-2 border-emerald-500/30 p-6 flex flex-col items-center justify-center text-center">
+              <span class="text-5xl mb-3">🟢</span>
+              <h4 class="text-xl font-bold text-emerald-400">Loyal to a Fault</h4>
+              <span class="text-xs uppercase tracking-widest text-emerald-400/60 mt-2">green flag</span>
+            </div>
+            <div
+              class="flag-card-back absolute inset-0 rounded-2xl bg-emerald-500 p-6 flex flex-col items-center justify-center text-center">
+              <p class="text-white font-medium">Will defend you in an argument she wasn't even part of. Aggressively
+                supportive.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Red Flag 1 -->
+        <div class="flag-card reveal-item h-56">
+          <div class="flag-card-inner relative w-full h-full">
+            <div
+              class="flag-card-front absolute inset-0 rounded-2xl bg-red-500/10 border-2 border-red-500/30 p-6 flex flex-col items-center justify-center text-center">
+              <span class="text-5xl mb-3">🚩</span>
+              <h4 class="text-xl font-bold text-red-400">Replies "haha" to Serious Texts</h4>
+              <span class="text-xs uppercase tracking-widest text-red-400/60 mt-2">red flag</span>
+            </div>
+            <div
+              class="flag-card-back absolute inset-0 rounded-2xl bg-red-500 p-6 flex flex-col items-center justify-center text-center">
+              <p class="text-white font-medium">Emotional range in text: "haha", "lol", and the occasional "😭". That's
+                it.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Green Flag 2 -->
+        <div class="flag-card reveal-item h-56">
+          <div class="flag-card-inner relative w-full h-full">
+            <div
+              class="flag-card-front absolute inset-0 rounded-2xl bg-emerald-500/10 border-2 border-emerald-500/30 p-6 flex flex-col items-center justify-center text-center">
+              <span class="text-5xl mb-3">🟢</span>
+              <h4 class="text-xl font-bold text-emerald-400">Will Share Food</h4>
+              <span class="text-xs uppercase tracking-widest text-emerald-400/60 mt-2">green flag</span>
+            </div>
+            <div
+              class="flag-card-back absolute inset-0 rounded-2xl bg-emerald-500 p-6 flex flex-col items-center justify-center text-center">
+              <p class="text-white font-medium">But only after taking a photo first. And only if you ask nicely. Twice.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Red Flag 2 -->
+        <div class="flag-card reveal-item h-56">
+          <div class="flag-card-inner relative w-full h-full">
+            <div
+              class="flag-card-front absolute inset-0 rounded-2xl bg-red-500/10 border-2 border-red-500/30 p-6 flex flex-col items-center justify-center text-center">
+              <span class="text-5xl mb-3">🚩</span>
+              <h4 class="text-xl font-bold text-red-400">Main Character Energy</h4>
+              <span class="text-xs uppercase tracking-widest text-red-400/60 mt-2">red flag</span>
+            </div>
+            <div
+              class="flag-card-back absolute inset-0 rounded-2xl bg-red-500 p-6 flex flex-col items-center justify-center text-center">
+              <p class="text-white font-medium">Walks into a room like the background music just changed. Every. Single.
+                Time.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Green Flag 3 -->
+        <div class="flag-card reveal-item h-56">
+          <div class="flag-card-inner relative w-full h-full">
+            <div
+              class="flag-card-front absolute inset-0 rounded-2xl bg-emerald-500/10 border-2 border-emerald-500/30 p-6 flex flex-col items-center justify-center text-center">
+              <span class="text-5xl mb-3">🟢</span>
+              <h4 class="text-xl font-bold text-emerald-400">Best Midnight Conversations</h4>
+              <span class="text-xs uppercase tracking-widest text-emerald-400/60 mt-2">green flag</span>
+            </div>
+            <div
+              class="flag-card-back absolute inset-0 rounded-2xl bg-emerald-500 p-6 flex flex-col items-center justify-center text-center">
+              <p class="text-white font-medium">Will go from "meaning of life" to "do fish get thirsty" in 30 seconds
+                flat.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Red Flag 3 -->
+        <div class="flag-card reveal-item h-56">
+          <div class="flag-card-inner relative w-full h-full">
+            <div
+              class="flag-card-front absolute inset-0 rounded-2xl bg-red-500/10 border-2 border-red-500/30 p-6 flex flex-col items-center justify-center text-center">
+              <span class="text-5xl mb-3">🚩</span>
+              <h4 class="text-xl font-bold text-red-400">Zero Sense of Time</h4>
+              <span class="text-xs uppercase tracking-widest text-red-400/60 mt-2">red flag</span>
+            </div>
+            <div
+              class="flag-card-back absolute inset-0 rounded-2xl bg-red-500 p-6 flex flex-col items-center justify-center text-center">
+              <p class="text-white font-medium">"5 more minutes" could mean 5 minutes or 5 hours. It's a surprise every
+                time.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- Footer -->
     <footer class="border-t border-primary/10 bg-white/5 py-12 text-center">
       <p class="mb-6 text-sm font-medium uppercase tracking-[0.3em] opacity-40">Still here? Go take a nap.</p>
