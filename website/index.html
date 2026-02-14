@@ -67,6 +67,82 @@
       animation: pulse-slow 8s infinite ease-in-out;
     }
 
+    /* Nav word color animation */
+    @keyframes nav-color-shift {
+      0% {
+        color: #7f0df2;
+      }
+
+      25% {
+        color: #d946ef;
+      }
+
+      50% {
+        color: #8b5cf6;
+      }
+
+      75% {
+        color: #ec4899;
+      }
+
+      100% {
+        color: #7f0df2;
+      }
+    }
+
+    .nav-word {
+      animation: nav-color-shift 6s ease-in-out infinite;
+    }
+
+    /* Hero text shimmer */
+    @keyframes text-shimmer {
+      0% {
+        background-position: -200% center;
+      }
+
+      100% {
+        background-position: 200% center;
+      }
+    }
+
+    .hero-text-animated {
+      background: linear-gradient(90deg, #7f0df2 0%, #d946ef 25%, #ec4899 50%, #8b5cf6 75%, #7f0df2 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: text-shimmer 4s linear infinite;
+    }
+
+    .hero-text-outline-animated {
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.15) 0%, rgba(127, 13, 242, 0.6) 25%, rgba(255, 255, 255, 0.3) 50%, rgba(127, 13, 242, 0.6) 75%, rgba(255, 255, 255, 0.15) 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: text-shimmer 5s linear infinite;
+      animation-delay: -2s;
+    }
+
+    /* Side floating orbs */
+    @keyframes float-orb {
+
+      0%,
+      100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.3;
+      }
+
+      50% {
+        transform: translateY(-20px) scale(1.1);
+        opacity: 0.6;
+      }
+    }
+
+    .side-orb {
+      animation: float-orb 4s ease-in-out infinite;
+    }
+
     /* Scroll Animation Initial States */
     .reveal-item {
       opacity: 0;
@@ -303,21 +379,13 @@
   class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white selection:bg-primary selection:text-white">
   <!-- Main Layout Container -->
   <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
-    <!-- Top Navigation Bar -->
     <nav
-      class="sticky top-0 z-50 flex items-center justify-between bg-background-light/80 dark:bg-background-dark/80 px-6 py-4 backdrop-blur-md">
-      <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
-        <span class="material-symbols-outlined">colors_spark</span>
+      class="sticky top-0 z-50 flex items-center justify-center bg-background-light/80 dark:bg-background-dark/80 px-6 py-4 backdrop-blur-md">
+      <div class="flex gap-6 text-sm font-bold tracking-[0.3em] uppercase">
+        <span class="nav-word px-3 py-1 rounded-full bg-primary/10">Dream</span>
+        <span class="nav-word px-3 py-1 rounded-full bg-primary/10" style="animation-delay: -2s;">Create</span>
+        <span class="nav-word px-3 py-1 rounded-full bg-primary/10" style="animation-delay: -4s;">Chaos</span>
       </div>
-      <div class="hidden md:flex gap-8 text-sm font-bold tracking-widest uppercase">
-        <a class="text-primary" href="#">Home</a>
-        <a class="hover:text-primary transition-colors" href="#">Vibe</a>
-        <a class="hover:text-primary transition-colors" href="#">Chaos</a>
-      </div>
-      <button
-        class="flex h-10 w-10 items-center justify-center rounded-full border border-primary/20 bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all">
-        <span class="material-symbols-outlined">dark_mode</span>
-      </button>
     </nav>
     <!-- Hero Section -->
     <header class="relative flex min-h-[90vh] flex-col items-center justify-center px-4 pt-12 text-center">
@@ -335,8 +403,8 @@
       </div>
       <div class="relative z-10 flex flex-col gap-6">
         <h1 class="text-7xl font-black leading-none tracking-tighter md:text-9xl lg:text-[12rem]">
-          <span class="block text-primary">KEER</span>
-          <span class="block text-outline dark:text-outline">THANA</span>
+          <span class="block hero-text-animated">KEER</span>
+          <span class="block hero-text-outline-animated">THANA</span>
         </h1>
         <div class="mx-auto max-w-md">
           <h2 class="text-xl font-medium leading-relaxed md:text-2xl">
@@ -370,6 +438,27 @@
         class="absolute bottom-40 -right-10 hidden lg:block animate-float text-xs font-bold tracking-[0.5em] text-primary/40 rotate-90 origin-center whitespace-nowrap"
         style="animation-delay: -3s;">THE METHOD</div>
 
+      <!-- Floating Side Orbs (Left) -->
+      <div class="absolute -left-32 top-[15%] hidden lg:block">
+        <div class="side-orb w-6 h-6 rounded-full bg-primary/30 blur-sm"></div>
+        <div class="side-orb w-4 h-4 rounded-full bg-pink-500/40 blur-sm mt-16 ml-4" style="animation-delay: -1s;">
+        </div>
+        <div class="side-orb w-8 h-8 rounded-full bg-violet-500/20 blur-sm mt-24 -ml-2" style="animation-delay: -2s;">
+        </div>
+        <div class="side-orb w-3 h-3 rounded-full bg-fuchsia-500/50 blur-sm mt-20 ml-6" style="animation-delay: -0.5s;">
+        </div>
+      </div>
+      <!-- Floating Side Orbs (Right) -->
+      <div class="absolute -right-32 top-[30%] hidden lg:block">
+        <div class="side-orb w-5 h-5 rounded-full bg-violet-500/30 blur-sm" style="animation-delay: -1.5s;"></div>
+        <div class="side-orb w-7 h-7 rounded-full bg-primary/25 blur-sm mt-20 -mr-2" style="animation-delay: -3s;">
+        </div>
+        <div class="side-orb w-4 h-4 rounded-full bg-pink-500/35 blur-sm mt-16 mr-4" style="animation-delay: -0.8s;">
+        </div>
+        <div class="side-orb w-6 h-6 rounded-full bg-fuchsia-500/20 blur-sm mt-24 mr-1" style="animation-delay: -2.5s;">
+        </div>
+      </div>
+
       <div class="mb-20 text-center">
         <h3 class="text-xs font-black uppercase tracking-[0.5em] text-primary">The Identity Breakdown</h3>
       </div>
@@ -395,11 +484,11 @@
             class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-primary text-4xl font-black text-white shadow-lg shadow-primary/30 group-hover:-rotate-12 transition-transform duration-500">
             E</div>
           <div class="flex flex-col reveal-text transition-all duration-700 delay-100">
-            <span class="text-3xl font-bold tracking-tight text-primary">Enthusiastic-snacker</span>
-            <span class="text-slate-500 dark:text-slate-400">Professional cookie quality controller.</span>
+            <span class="text-3xl font-bold tracking-tight text-primary">Endlessly-scrolling</span>
+            <span class="text-slate-500 dark:text-slate-400">Reels are her cardio. Thumb workout champion.</span>
           </div>
           <div class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
-            <span class="material-symbols-outlined text-primary text-4xl">cookie</span>
+            <span class="material-symbols-outlined text-primary text-4xl">phone_android</span>
           </div>
         </div>
         <!-- Letter E -->
@@ -423,11 +512,12 @@
             class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-primary text-4xl font-black text-white shadow-lg shadow-primary/30 group-hover:rotate-180 transition-transform duration-500">
             R</div>
           <div class="flex flex-col reveal-text transition-all duration-700 delay-100">
-            <span class="text-3xl font-bold tracking-tight text-primary">Radical-procrastinator</span>
-            <span class="text-slate-500 dark:text-slate-400">Doing it tomorrow since 1998.</span>
+            <span class="text-3xl font-bold tracking-tight text-primary">Ridiculously-loyal</span>
+            <span class="text-slate-500 dark:text-slate-400">Will fight your battles before you even know there's a
+              war.</span>
           </div>
           <div class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
-            <span class="material-symbols-outlined text-primary text-4xl">schedule</span>
+            <span class="material-symbols-outlined text-primary text-4xl">shield</span>
           </div>
         </div>
         <!-- Letter T -->
@@ -437,11 +527,12 @@
             class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-primary text-4xl font-black text-white shadow-lg shadow-primary/30 group-hover:-translate-y-2 transition-transform duration-500">
             T</div>
           <div class="flex flex-col reveal-text transition-all duration-700 delay-100">
-            <span class="text-3xl font-bold tracking-tight text-primary">Taco-enthusiast</span>
-            <span class="text-slate-500 dark:text-slate-400">Tuesdays are for lovers. Taco lovers.</span>
+            <span class="text-3xl font-bold tracking-tight text-primary">Tragically-lactose-intolerant</span>
+            <span class="text-slate-500 dark:text-slate-400">Can't drink milk. Still craves chai. The universe is
+              cruel.</span>
           </div>
           <div class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
-            <span class="material-symbols-outlined text-primary text-4xl">lunch_dining</span>
+            <span class="material-symbols-outlined text-primary text-4xl">emoji_food_beverage</span>
           </div>
         </div>
         <!-- Letter H -->
@@ -465,11 +556,12 @@
             class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-primary text-4xl font-black text-white shadow-lg shadow-primary/30 group-hover:opacity-50 transition-all duration-500">
             A</div>
           <div class="flex flex-col reveal-text transition-all duration-700 delay-100">
-            <span class="text-3xl font-bold tracking-tight text-primary">Awesome-at-naps</span>
-            <span class="text-slate-500 dark:text-slate-400">Could sleep through a volcanic eruption.</span>
+            <span class="text-3xl font-bold tracking-tight text-primary">Accidentally-athletic</span>
+            <span class="text-slate-500 dark:text-slate-400">Plays cricket after work. Has no idea what she's
+              doing.</span>
           </div>
           <div class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
-            <span class="material-symbols-outlined text-primary text-4xl">bedtime</span>
+            <span class="material-symbols-outlined text-primary text-4xl">sports_cricket</span>
           </div>
         </div>
         <!-- Letter N -->
@@ -479,11 +571,11 @@
             class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-primary text-4xl font-black text-white shadow-lg shadow-primary/30 group-hover:translate-x-4 transition-transform duration-500">
             N</div>
           <div class="flex flex-col reveal-text transition-all duration-700 delay-100">
-            <span class="text-3xl font-bold tracking-tight text-primary">Never-on-time</span>
-            <span class="text-slate-500 dark:text-slate-400">Arriving fashionably late since birth.</span>
+            <span class="text-3xl font-bold tracking-tight text-primary">Naturally-an-early-bird</span>
+            <span class="text-slate-500 dark:text-slate-400">Up at 3 AM while the world sleeps. Built different.</span>
           </div>
           <div class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
-            <span class="material-symbols-outlined text-primary text-4xl">history</span>
+            <span class="material-symbols-outlined text-primary text-4xl">wb_sunny</span>
           </div>
         </div>
         <!-- Letter A -->
@@ -520,24 +612,26 @@
       <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
         <div class="glass-card flex flex-col items-center justify-center p-8 rounded-2xl text-center">
           <span class="material-symbols-outlined text-primary mb-4 text-4xl">coffee</span>
-          <span class="text-3xl font-black">∞</span>
-          <span class="text-xs uppercase tracking-widest opacity-60 mt-2">Cups of coffee</span>
+          <span class="text-3xl font-black">0</span>
+          <span class="text-[10px] leading-tight uppercase tracking-widest opacity-60 mt-2">Cups of coffee<br><span
+              class="text-primary/80">(milk allergy bestie 🥲)</span></span>
         </div>
         <div class="glass-card flex flex-col items-center justify-center p-8 rounded-2xl text-center">
           <span class="material-symbols-outlined text-primary mb-4 text-4xl">auto_stories</span>
-          <span class="text-3xl font-black">12</span>
-          <span class="text-xs uppercase tracking-widest opacity-60 mt-2">Unfinished books</span>
+          <span class="text-3xl font-black">???</span>
+          <span class="text-[10px] leading-tight uppercase tracking-widest opacity-60 mt-2">Finished books<br><span
+              class="text-primary/80">(lost count honestly)</span></span>
         </div>
         <div class="glass-card flex flex-col items-center justify-center p-8 rounded-2xl text-center">
           <span class="material-symbols-outlined text-primary mb-4 text-4xl">potted_plant</span>
-          <span class="text-3xl font-black">4</span>
+          <span class="text-3xl font-black">∞</span>
           <span class="text-xs uppercase tracking-widest opacity-60 mt-2">Plants killed</span>
         </div>
         <div class="glass-card flex flex-col items-center justify-center p-8 rounded-2xl text-center">
-          <span class="material-symbols-outlined text-primary mb-4 text-4xl">kitchen</span>
-          <span class="text-3xl font-black">TOO MANY</span>
+          <span class="material-symbols-outlined text-primary mb-4 text-4xl">play_circle</span>
+          <span class="text-3xl font-black">24/7</span>
           <span class="text-[10px] leading-tight uppercase tracking-widest opacity-60 mt-2">Hours staring at
-            fridge</span>
+            reels</span>
         </div>
       </div>
     </section>
@@ -559,17 +653,17 @@
           <div class="md:w-1/2 md:text-right md:pr-12 order-2 md:order-1">
             <div
               class="glass-card p-6 rounded-2xl group hover:bg-primary/10 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
-              <span class="text-xs font-black uppercase tracking-widest text-primary/60">7:00 AM</span>
-              <h4 class="text-xl font-bold mt-2">Alarm? What Alarm?</h4>
-              <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Snooze champion, 6th round. The alarm is merely
-                a suggestion.</p>
+              <span class="text-xs font-black uppercase tracking-widest text-primary/60">3:00 AM</span>
+              <h4 class="text-xl font-bold mt-2">Grand Awakening</h4>
+              <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">While the world is fast asleep, our girl is
+                already up and at it. 3 AM is just her thing. Built different.</p>
               <span
-                class="material-symbols-outlined text-primary text-3xl mt-3 opacity-0 group-hover:opacity-100 transition-opacity">alarm_off</span>
+                class="material-symbols-outlined text-primary text-3xl mt-3 opacity-0 group-hover:opacity-100 transition-opacity">wb_sunny</span>
             </div>
           </div>
           <div
             class="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/40 order-1 md:order-2 timeline-dot">
-            <span class="material-symbols-outlined">wb_sunny</span>
+            <span class="material-symbols-outlined">alarm</span>
           </div>
           <div class="md:w-1/2 md:pl-12 order-3 hidden md:block"></div>
         </div>
@@ -579,17 +673,17 @@
           <div class="md:w-1/2 md:pr-12 order-2 hidden md:block"></div>
           <div
             class="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/40 order-1 timeline-dot">
-            <span class="material-symbols-outlined">coffee</span>
+            <span class="material-symbols-outlined">phone_android</span>
           </div>
           <div class="md:w-1/2 md:pl-12 order-3 md:order-3">
             <div
               class="glass-card p-6 rounded-2xl group hover:bg-primary/10 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
-              <span class="text-xs font-black uppercase tracking-widest text-primary/60">9:30 AM</span>
-              <h4 class="text-xl font-bold mt-2">Coffee Round One</h4>
-              <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Personality doesn't load without caffeine. This
-                is non-negotiable.</p>
+              <span class="text-xs font-black uppercase tracking-widest text-primary/60">3:30 AM</span>
+              <h4 class="text-xl font-bold mt-2">Daily Bestie Reels Report</h4>
+              <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">First order of business: watch every reel her
+                best friend sent. React to all of them. This is sacred morning ritual.</p>
               <span
-                class="material-symbols-outlined text-primary text-3xl mt-3 opacity-0 group-hover:opacity-100 transition-opacity">local_cafe</span>
+                class="material-symbols-outlined text-primary text-3xl mt-3 opacity-0 group-hover:opacity-100 transition-opacity">favorite</span>
             </div>
           </div>
         </div>
@@ -599,17 +693,17 @@
           <div class="md:w-1/2 md:text-right md:pr-12 order-2 md:order-1">
             <div
               class="glass-card p-6 rounded-2xl group hover:bg-primary/10 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
-              <span class="text-xs font-black uppercase tracking-widest text-primary/60">12:00 PM</span>
-              <h4 class="text-xl font-bold mt-2">The Great Lunch Debate</h4>
-              <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">"What should I eat?" — the question that has no
-                answer, only suffering.</p>
+              <span class="text-xs font-black uppercase tracking-widest text-primary/60">5:00 AM</span>
+              <h4 class="text-xl font-bold mt-2">Morning Chores Mode</h4>
+              <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Cleaning, laundry, the usual adulting routine.
+                Getting it done before the hostel wakes up. Productivity queen.</p>
               <span
-                class="material-symbols-outlined text-primary text-3xl mt-3 opacity-0 group-hover:opacity-100 transition-opacity">restaurant</span>
+                class="material-symbols-outlined text-primary text-3xl mt-3 opacity-0 group-hover:opacity-100 transition-opacity">cleaning_services</span>
             </div>
           </div>
           <div
             class="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/40 order-1 md:order-2 timeline-dot">
-            <span class="material-symbols-outlined">lunch_dining</span>
+            <span class="material-symbols-outlined">home</span>
           </div>
           <div class="md:w-1/2 md:pl-12 order-3 hidden md:block"></div>
         </div>
@@ -619,17 +713,17 @@
           <div class="md:w-1/2 md:pr-12 order-2 hidden md:block"></div>
           <div
             class="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/40 order-1 timeline-dot">
-            <span class="material-symbols-outlined">self_improvement</span>
+            <span class="material-symbols-outlined">work</span>
           </div>
           <div class="md:w-1/2 md:pl-12 order-3 md:order-3">
             <div
               class="glass-card p-6 rounded-2xl group hover:bg-primary/10 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
-              <span class="text-xs font-black uppercase tracking-widest text-primary/60">3:00 PM</span>
-              <h4 class="text-xl font-bold mt-2">Existential Snack Break</h4>
-              <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Staring into the fridge for meaning. Found
-                leftover pizza instead.</p>
+              <span class="text-xs font-black uppercase tracking-widest text-primary/60">9:00 AM – 5:00 PM</span>
+              <h4 class="text-xl font-bold mt-2">Corporate Chaos Mode</h4>
+              <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">9-to-5 grind activated. Meetings she spaces out
+                in, snack breaks disguised as "bio breaks", and the occasional burst of actual genius.</p>
               <span
-                class="material-symbols-outlined text-primary text-3xl mt-3 opacity-0 group-hover:opacity-100 transition-opacity">kitchen</span>
+                class="material-symbols-outlined text-primary text-3xl mt-3 opacity-0 group-hover:opacity-100 transition-opacity">trending_up</span>
             </div>
           </div>
         </div>
@@ -639,39 +733,59 @@
           <div class="md:w-1/2 md:text-right md:pr-12 order-2 md:order-1">
             <div
               class="glass-card p-6 rounded-2xl group hover:bg-primary/10 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
-              <span class="text-xs font-black uppercase tracking-widest text-primary/60">7:00 PM</span>
-              <h4 class="text-xl font-bold mt-2">Procrastination Prime Time</h4>
-              <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Plans to be productive. Opens Netflix. Tomorrow
-                is another day.</p>
+              <span class="text-xs font-black uppercase tracking-widest text-primary/60">5:30 PM</span>
+              <h4 class="text-xl font-bold mt-2">Cricket Legend (in her head)</h4>
+              <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Plays cricket after work. Doesn't know the
+                rules. Swings the bat with pure vibes and zero technique. Still has fun though.</p>
               <span
-                class="material-symbols-outlined text-primary text-3xl mt-3 opacity-0 group-hover:opacity-100 transition-opacity">tv</span>
+                class="material-symbols-outlined text-primary text-3xl mt-3 opacity-0 group-hover:opacity-100 transition-opacity">sports_cricket</span>
             </div>
           </div>
           <div
             class="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/40 order-1 md:order-2 timeline-dot">
-            <span class="material-symbols-outlined">nightlife</span>
+            <span class="material-symbols-outlined">sports</span>
           </div>
           <div class="md:w-1/2 md:pl-12 order-3 hidden md:block"></div>
         </div>
 
         <!-- Timeline Entry 6 - Right -->
-        <div class="timeline-entry reveal-item flex items-center gap-8 md:flex-row flex-col">
+        <div class="timeline-entry reveal-item flex items-center gap-8 mb-12 md:flex-row flex-col">
           <div class="md:w-1/2 md:pr-12 order-2 hidden md:block"></div>
           <div
             class="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/40 order-1 timeline-dot">
-            <span class="material-symbols-outlined">bedtime</span>
+            <span class="material-symbols-outlined">cleaning_services</span>
           </div>
           <div class="md:w-1/2 md:pl-12 order-3 md:order-3">
             <div
               class="glass-card p-6 rounded-2xl group hover:bg-primary/10 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
-              <span class="text-xs font-black uppercase tracking-widest text-primary/60">2:00 AM</span>
-              <h4 class="text-xl font-bold mt-2">Overthinking Olympics</h4>
-              <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Brain decides NOW is the time to replay every
-                conversation from 2014.</p>
+              <span class="text-xs font-black uppercase tracking-widest text-primary/60">7:30 PM</span>
+              <h4 class="text-xl font-bold mt-2">Hostel Chores: Round 2</h4>
+              <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Back to the hostel grind. Dinner prep, room
+                cleanup, the never-ending cycle of being a responsible-ish adult.</p>
               <span
-                class="material-symbols-outlined text-primary text-3xl mt-3 opacity-0 group-hover:opacity-100 transition-opacity">psychology</span>
+                class="material-symbols-outlined text-primary text-3xl mt-3 opacity-0 group-hover:opacity-100 transition-opacity">restaurant</span>
             </div>
           </div>
+        </div>
+
+        <!-- Timeline Entry 7 - Left -->
+        <div class="timeline-entry reveal-item flex items-center gap-8 md:flex-row flex-col">
+          <div class="md:w-1/2 md:text-right md:pr-12 order-2 md:order-1">
+            <div
+              class="glass-card p-6 rounded-2xl group hover:bg-primary/10 transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
+              <span class="text-xs font-black uppercase tracking-widest text-primary/60">9:00 PM – 11:00 PM</span>
+              <h4 class="text-xl font-bold mt-2">The Infinite Scroll</h4>
+              <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Phone in hand, blanket activated. Two hours of
+                reels, memes, and "I should sleep" thoughts. Spoiler: she does sleep. Eventually. By 11. Probably.</p>
+              <span
+                class="material-symbols-outlined text-primary text-3xl mt-3 opacity-0 group-hover:opacity-100 transition-opacity">bedtime</span>
+            </div>
+          </div>
+          <div
+            class="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/40 order-1 md:order-2 timeline-dot">
+            <span class="material-symbols-outlined">nightlight</span>
+          </div>
+          <div class="md:w-1/2 md:pl-12 order-3 hidden md:block"></div>
         </div>
 
       </div>
@@ -686,24 +800,50 @@
       <div class="flex gap-6 overflow-x-auto px-[10%] pb-8 no-scrollbar scroll-smooth">
         <div
           class="min-w-[280px] shrink-0 p-8 rounded-3xl bg-primary text-white shadow-xl flex flex-col justify-between h-48">
-          <span class="material-symbols-outlined text-4xl opacity-50">tv</span>
-          <span class="text-2xl font-bold">90s Sitcoms</span>
+          <span class="material-symbols-outlined text-4xl opacity-50">style</span>
+          <span class="text-2xl font-bold">Crochet <span class="text-sm block font-medium opacity-70">(hook life chose
+              her)</span></span>
         </div>
         <div
           class="min-w-[280px] shrink-0 p-8 rounded-3xl border-2 border-primary/30 bg-primary/5 flex flex-col justify-between h-48">
-          <span class="material-symbols-outlined text-4xl text-primary opacity-50">bakery_dining</span>
-          <span class="text-2xl font-bold text-primary">Sourdough Baking <span
-              class="text-sm block font-medium opacity-70">(it's a phase)</span></span>
+          <span class="material-symbols-outlined text-4xl text-primary opacity-50">skillet</span>
+          <span class="text-2xl font-bold text-primary">Cooking Experiments <span
+              class="text-sm block font-medium opacity-70">(50% edible)</span></span>
         </div>
         <div
           class="min-w-[280px] shrink-0 p-8 rounded-3xl bg-white/5 border border-white/10 flex flex-col justify-between h-48">
-          <span class="material-symbols-outlined text-4xl text-primary opacity-50">mic_external_on</span>
-          <span class="text-2xl font-bold">True Crime Podcasts</span>
+          <span class="material-symbols-outlined text-4xl text-primary opacity-50">videocam</span>
+          <span class="text-2xl font-bold">Vlogs</span>
         </div>
         <div
           class="min-w-[280px] shrink-0 p-8 rounded-3xl border-2 border-primary/30 bg-primary/5 flex flex-col justify-between h-48">
-          <span class="material-symbols-outlined text-4xl text-primary opacity-50">record_voice_over</span>
-          <span class="text-2xl font-bold text-primary">Learning to whistle</span>
+          <span class="material-symbols-outlined text-4xl text-primary opacity-50">luggage</span>
+          <span class="text-2xl font-bold text-primary">Weekend Trips <span
+              class="text-sm block font-medium opacity-70">(anywhere but here)</span></span>
+        </div>
+        <div
+          class="min-w-[280px] shrink-0 p-8 rounded-3xl bg-primary text-white shadow-xl flex flex-col justify-between h-48">
+          <span class="material-symbols-outlined text-4xl opacity-50">play_circle</span>
+          <span class="text-2xl font-bold">Watching Reels <span
+              class="text-sm block font-medium opacity-70">(professionally)</span></span>
+        </div>
+        <div
+          class="min-w-[280px] shrink-0 p-8 rounded-3xl bg-white/5 border border-white/10 flex flex-col justify-between h-48">
+          <span class="material-symbols-outlined text-4xl text-primary opacity-50">person_search</span>
+          <span class="text-2xl font-bold">Stalking <span class="text-sm block font-medium opacity-70">(professional
+              research™)</span></span>
+        </div>
+        <div
+          class="min-w-[280px] shrink-0 p-8 rounded-3xl border-2 border-primary/30 bg-primary/5 flex flex-col justify-between h-48">
+          <span class="material-symbols-outlined text-4xl text-primary opacity-50">sports_cricket</span>
+          <span class="text-2xl font-bold text-primary">Cricket Attempts <span
+              class="text-sm block font-medium opacity-70">(vibes only)</span></span>
+        </div>
+        <div
+          class="min-w-[280px] shrink-0 p-8 rounded-3xl bg-primary text-white shadow-xl flex flex-col justify-between h-48">
+          <span class="material-symbols-outlined text-4xl opacity-50">psychology</span>
+          <span class="text-2xl font-bold">Overthinking <span class="text-sm block font-medium opacity-70">(Olympic
+              level)</span></span>
         </div>
       </div>
     </section>
@@ -724,13 +864,13 @@
             <div
               class="flag-card-front absolute inset-0 rounded-2xl bg-emerald-500/10 border-2 border-emerald-500/30 p-6 flex flex-col items-center justify-center text-center">
               <span class="text-5xl mb-3">🟢</span>
-              <h4 class="text-xl font-bold text-emerald-400">Loyal to a Fault</h4>
+              <h4 class="text-xl font-bold text-emerald-400">Best Hype Woman</h4>
               <span class="text-xs uppercase tracking-widest text-emerald-400/60 mt-2">green flag</span>
             </div>
             <div
               class="flag-card-back absolute inset-0 rounded-2xl bg-emerald-500 p-6 flex flex-col items-center justify-center text-center">
-              <p class="text-white font-medium">Will defend you in an argument she wasn't even part of. Aggressively
-                supportive.</p>
+              <p class="text-white font-medium">Will gas you up so hard you'll start believing you invented gravity.
+                Your biggest fan, always.</p>
             </div>
           </div>
         </div>
@@ -741,13 +881,13 @@
             <div
               class="flag-card-front absolute inset-0 rounded-2xl bg-red-500/10 border-2 border-red-500/30 p-6 flex flex-col items-center justify-center text-center">
               <span class="text-5xl mb-3">🚩</span>
-              <h4 class="text-xl font-bold text-red-400">Replies "haha" to Serious Texts</h4>
+              <h4 class="text-xl font-bold text-red-400">Dangerously Curious</h4>
               <span class="text-xs uppercase tracking-widest text-red-400/60 mt-2">red flag</span>
             </div>
             <div
               class="flag-card-back absolute inset-0 rounded-2xl bg-red-500 p-6 flex flex-col items-center justify-center text-center">
-              <p class="text-white font-medium">Emotional range in text: "haha", "lol", and the occasional "😭". That's
-                it.</p>
+              <p class="text-white font-medium">Will Google rabbit-hole at 3 AM until she knows everything about a topic
+                she'll forget by morning.</p>
             </div>
           </div>
         </div>
@@ -758,18 +898,18 @@
             <div
               class="flag-card-front absolute inset-0 rounded-2xl bg-emerald-500/10 border-2 border-emerald-500/30 p-6 flex flex-col items-center justify-center text-center">
               <span class="text-5xl mb-3">🟢</span>
-              <h4 class="text-xl font-bold text-emerald-400">Will Share Food</h4>
+              <h4 class="text-xl font-bold text-emerald-400">Will Cry at Anything</h4>
               <span class="text-xs uppercase tracking-widest text-emerald-400/60 mt-2">green flag</span>
             </div>
             <div
               class="flag-card-back absolute inset-0 rounded-2xl bg-emerald-500 p-6 flex flex-col items-center justify-center text-center">
-              <p class="text-white font-medium">But only after taking a photo first. And only if you ask nicely. Twice.
-              </p>
+              <p class="text-white font-medium">Dog videos, sunsets, a good song, your happiness — everything gets the
+                tears. She feels deeply and it's beautiful.</p>
             </div>
           </div>
         </div>
 
-        <!-- Red Flag 2 -->
+        <!-- Red Flag 2 — KEPT: Main Character Energy -->
         <div class="flag-card reveal-item h-56">
           <div class="flag-card-inner relative w-full h-full">
             <div
@@ -792,13 +932,13 @@
             <div
               class="flag-card-front absolute inset-0 rounded-2xl bg-emerald-500/10 border-2 border-emerald-500/30 p-6 flex flex-col items-center justify-center text-center">
               <span class="text-5xl mb-3">🟢</span>
-              <h4 class="text-xl font-bold text-emerald-400">Best Midnight Conversations</h4>
+              <h4 class="text-xl font-bold text-emerald-400">Remembers Everything</h4>
               <span class="text-xs uppercase tracking-widest text-emerald-400/60 mt-2">green flag</span>
             </div>
             <div
               class="flag-card-back absolute inset-0 rounded-2xl bg-emerald-500 p-6 flex flex-col items-center justify-center text-center">
-              <p class="text-white font-medium">Will go from "meaning of life" to "do fish get thirsty" in 30 seconds
-                flat.</p>
+              <p class="text-white font-medium">That thing you mentioned once 3 years ago? She remembers. Your birthday,
+                your coffee order, your pet's name — all stored.</p>
             </div>
           </div>
         </div>
@@ -809,17 +949,53 @@
             <div
               class="flag-card-front absolute inset-0 rounded-2xl bg-red-500/10 border-2 border-red-500/30 p-6 flex flex-col items-center justify-center text-center">
               <span class="text-5xl mb-3">🚩</span>
-              <h4 class="text-xl font-bold text-red-400">Zero Sense of Time</h4>
+              <h4 class="text-xl font-bold text-red-400">Professional Ghoster</h4>
               <span class="text-xs uppercase tracking-widest text-red-400/60 mt-2">red flag</span>
             </div>
             <div
               class="flag-card-back absolute inset-0 rounded-2xl bg-red-500 p-6 flex flex-col items-center justify-center text-center">
-              <p class="text-white font-medium">"5 more minutes" could mean 5 minutes or 5 hours. It's a surprise every
-                time.</p>
+              <p class="text-white font-medium">Will see your message, think "I'll reply later," and then remember 3
+                days later. Nothing personal, just vibes.</p>
             </div>
           </div>
         </div>
 
+      </div>
+    </section>
+
+    <!-- The Final Word Section -->
+    <section class="relative py-32 overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none">
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[120px]">
+        </div>
+      </div>
+      <div class="relative z-10 container mx-auto max-w-3xl px-4 text-center">
+        <h3 class="text-xs font-black uppercase tracking-[0.5em] text-primary mb-6">The Final Word</h3>
+        <h2 class="text-4xl font-black md:text-6xl mb-8 leading-tight">
+          If you've scrolled this far,<br>
+          <span class="hero-text-animated">you're officially invested.</span>
+        </h2>
+        <p class="text-lg text-slate-500 dark:text-slate-400 max-w-xl mx-auto mb-10 leading-relaxed">
+          This page is chaotic, slightly unhinged, and way too long — kind of like me.
+          Thanks for sticking around. You're now legally required to be my friend.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <div
+            class="glass-card px-6 py-3 rounded-full text-sm font-bold uppercase tracking-widest text-primary reveal-item">
+            ✨ Certified Chaos Survivor
+          </div>
+          <div
+            class="glass-card px-6 py-3 rounded-full text-sm font-bold uppercase tracking-widest text-primary reveal-item"
+            style="transition-delay: 0.1s;">
+            🏆 You Made It Award
+          </div>
+          <div
+            class="glass-card px-6 py-3 rounded-full text-sm font-bold uppercase tracking-widest text-primary reveal-item"
+            style="transition-delay: 0.2s;">
+            💜 Honorary Keerthana Fan
+          </div>
+        </div>
       </div>
     </section>
 
@@ -842,19 +1018,6 @@
       </div>
       <p class="mt-8 text-xs opacity-30">© 2024 Keerthana. All rights and wrongs reserved.</p>
     </footer>
-    <!-- Bottom Mobile Nav -->
-    <div
-      class="fixed bottom-6 left-1/2 z-50 flex -translate-x-1/2 items-center gap-2 rounded-full bg-[#211b27] px-4 py-2 shadow-2xl ring-1 ring-white/10 md:hidden">
-      <a class="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white" href="#">
-        <span class="material-symbols-outlined">home</span>
-      </a>
-      <a class="flex h-10 w-10 items-center justify-center rounded-full text-slate-400" href="#">
-        <span class="material-symbols-outlined">person</span>
-      </a>
-      <a class="flex h-10 w-10 items-center justify-center rounded-full text-slate-400" href="#">
-        <span class="material-symbols-outlined">chat</span>
-      </a>
-    </div>
   </div>
 
   <style>
